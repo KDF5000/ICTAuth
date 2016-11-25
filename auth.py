@@ -6,8 +6,7 @@
 """
 import requests as req
 import hashlib
-import sys
-
+import sys,os
 class Net(object):
 
     @staticmethod
@@ -31,7 +30,17 @@ def do_login():
         fw.write(uid)
 
 def do_logout():
-    data = {"uid":"19928648262964"}
+    if not os.path.isfile("uid"):
+        print "Please confirm that your account are on line"
+        sys.exit()
+    fp = open('uid')
+    uid = fp.readline().strip()
+    
+    if uid == "":
+        print "Please confirm that your account are on line"
+        sys.exit()
+
+    data = {"uid":uid}
     headers = {"Content-Type":"application/x-www-form-urlencoded"}
     msg = Net.post("http://159.226.39.22/cgi-bin/do_logout",params=data, header=headers)
     print msg
