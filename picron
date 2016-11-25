@@ -1,0 +1,2 @@
+#* * * * * /bin/echo `date` >> /home/pi/Documents/Coding/ICTAuth/out
+0,10,20,30,40,50 * * * * /home/pi/Documents/Coding/ICTAuth/mornitor_net.sh >> /home/pi/Documents/Coding/ICTAuth/mornitor.log

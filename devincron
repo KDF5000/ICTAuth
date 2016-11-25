@@ -1,0 +1,2 @@
+#* * * * * /bin/echo `date` >> /Users/KDF5000/Documents/2016/Coding/ICTAuth/out
+0,10,20,30,40,50 * * * * /Users/KDF5000/Documents/2016/Coding/ICTAuth/mornitor_net.sh >> /Users/KDF5000/Documents/2016/Coding/ICTAuth/mornitor.log
