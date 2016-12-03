@@ -7,9 +7,9 @@
 $git clone https://github.com/KDF5000/ICTAuth.git
 ```
 修改`auth.py`里面认证需要的用户名和密码
+> pass_str = hashlib.md5("******").hexdigest()
 > 
-pass_str = hashlib.md5("******").hexdigest()
-data = {"username":"******", "password":password,"drop":0, "type":1, "n":100}
+> data = {"username":"******", "password":password,"drop":0, "type":1, "n":100}
 
 然后执行下面命令进行登录和退出
 ```
