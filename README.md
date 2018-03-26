@@ -6,15 +6,10 @@
 ```
 $git clone https://github.com/KDF5000/ICTAuth.git
 ```
-修改`auth.py`里面认证需要的用户名和密码
-> 
-pass_str = hashlib.md5("******").hexdigest()
-data = {"username":"******", "password":password,"drop":0, "type":1, "n":100}
-
 然后执行下面命令进行登录和退出
 ```
-$python auth.py login
-$python auth.py logout
+$python auth.py login username password
+$python auth.py logout username password
 ```
 #### 添加网络监控程序
 下载的代码中`mornitor_net.sh`是监控网络是否连接比在断网的情况下调用auth.py进行自动认证。为了持续监控需要将此程序加入crontab进行定时执行，可以修改devincron里面的相应路径，然后执行下面指令即可。
