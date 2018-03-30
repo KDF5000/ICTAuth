@@ -4,25 +4,29 @@
 """
 目的：使用urllib2封装一个网络请求库，提供get和post方法
 """
-import requests as req
 import hashlib
 import sys,os
+import urllib
+import urllib2
 
 reload(sys)
 sys.setdefaultencoding('utf8')
+
 class Net(object):
 
     @staticmethod
     def get(url,params=dict(), header=dict()):
-        r = req.get(url,params=params)
-        r.encoding = "utf-8"
-        return r.text
+        newUrl = url + "?" + urllib.urlencode(params)
+        req = urllib2.Request(newUrl, headers=header)
+        r = urllib2.urlopen(req)
+        return r.read()
 
     @staticmethod
     def post(url, params=dict(), header=dict()):
-        r = req.post(url, data=params)
-        r.encoding = "utf-8"
-        return r.text
+        data = urllib.urlencode(params)
+        req = urllib2.Request(url, data=data, headers=header)
+        r = urllib2.urlopen(req)
+        return r.read()
 
 def do_login(username, password):
     #pass_str = hashlib.md5("*****").hexdigest()
